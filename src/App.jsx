@@ -1,11 +1,14 @@
+import { Box } from "@mui/material";
 import "./App.css";
-import Auth from "./components/auth/Auth";
+// import LoginScreen from "./components/LoginScreen/LoginScreen";
+import RegisterScreen from "./components/RegisterScreen/Register";
 
 function App() {
     return (
-        <div>
-            <Auth />
-        </div>
+        <Box sx={{ height: "100vh" }}>
+            {/* <LoginScreen /> */}
+            <RegisterScreen />
+        </Box>
     );
 }
 
