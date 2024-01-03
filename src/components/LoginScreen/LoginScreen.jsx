@@ -1,5 +1,4 @@
 import { Box, Button, Paper, TextField } from "@mui/material";
-
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,6 @@ const LoginScreen = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100%",
-                border: "1px solid red",
             }}
         >
             <Paper

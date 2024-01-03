@@ -11,7 +11,6 @@ const RegisterScreen = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100%",
-                border: "1px solid red",
             }}
         >
             <Paper
