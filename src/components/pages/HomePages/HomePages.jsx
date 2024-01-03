@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
-import { useEffect } from "react";
+// import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+// import { saveDocument } from "../../../actions/actions";
 
 const HomePages = () => {
-    useEffect(() => {}, []);
-    return <Box>Home</Box>;
+    return <Navigate to="/Login" />;
 };
 
 export default HomePages;
