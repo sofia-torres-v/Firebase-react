@@ -1,13 +1,17 @@
 import { Box } from "@mui/material";
 import "./App.css";
-// import LoginScreen from "./components/LoginScreen/LoginScreen";
+
+import { Route, Routes } from "react-router-dom";
+import LoginScreen from "./components/LoginScreen/LoginScreen";
 import RegisterScreen from "./components/RegisterScreen/Register";
 
 function App() {
     return (
         <Box sx={{ height: "100vh" }}>
-            {/* <LoginScreen /> */}
-            <RegisterScreen />
+            <Routes>
+                <Route path="/Login" element={<LoginScreen />} />
+                <Route path="/Register" element={<RegisterScreen />} />
+            </Routes>
         </Box>
     );
 }

@@ -1,6 +1,7 @@
 import { Box, Button, Paper, TextField } from "@mui/material";
 
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const RegisterScreen = () => {
     return (
@@ -17,7 +18,6 @@ const RegisterScreen = () => {
                 elevation={2}
                 sx={{
                     p: 5,
-                    // border: "1px solid blue",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -41,12 +41,33 @@ const RegisterScreen = () => {
                 <TextField
                     fullWidth
                     id="outlined-basic"
+                    type="password"
                     label="Password"
+                    variant="outlined"
+                />
+                <TextField
+                    fullWidth
+                    id="outlined-basic"
+                    type="password"
+                    label="Confirm password"
                     variant="outlined"
                 />
                 <Button fullWidth variant="contained">
                     Click me
                 </Button>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: 2,
+                    }}
+                >
+                    <Typography variant="body1" color="initial">
+                        Ya tienes Cuenta
+                    </Typography>
+                    <Link to="/login">Login </Link>
+                </Box>
             </Paper>
         </Box>
     );
