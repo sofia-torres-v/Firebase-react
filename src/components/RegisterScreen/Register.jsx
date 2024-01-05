@@ -7,8 +7,10 @@ import { ToastContainer } from "react-toastify";
 import { toastIt, validateEmail } from "../../utils/utils";
 import moment from "moment";
 import { saveDocument } from "../../actions/actions";
+import CustomLoading from "../common/CustomLoading";
 
 const RegisterScreen = () => {
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -21,7 +23,7 @@ const RegisterScreen = () => {
         console.log(name, value);
     };
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         const { email, password, confirmPassword } = formData;
         if (!validateEmail(email)) {
             toastIt("Ingrese un email válido", 3);
@@ -37,8 +39,20 @@ const RegisterScreen = () => {
             toastIt("Las contraseñas no coinciden", 3);
             return;
         }
-        // ahora podremos hacer el registro
-        saveDocument("Users", { ...formData, date: moment().format() });
+        try {
+            setLoading(true);
+            // Esperar a que saveDocument se complete
+            await saveDocument("Users", {
+                ...formData,
+                date: moment().format(),
+            });
+        } catch (error) {
+            console.error("Error al guardar el documento:", error);
+            // Manejar el error según sea necesario
+        } finally {
+            // Independientemente de si hay un error o no, detener el loading
+            setLoading(false);
+        }
     };
     return (
         <Box
@@ -49,6 +63,7 @@ const RegisterScreen = () => {
                 height: "100%",
             }}
         >
+            <CustomLoading open={loading} />
             <Paper
                 elevation={2}
                 sx={{
