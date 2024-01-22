@@ -7,53 +7,52 @@ import { ToastContainer } from "react-toastify";
 import { toastIt, validateEmail } from "../../utils/utils";
 import moment from "moment";
 import { saveDocument } from "../../actions/actions";
+import bcrypt from 'bcryptjs'
 import CustomLoading from "../common/CustomLoading";
 
 const RegisterScreen = () => {
-    const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        confirmPassword: "",
+    const [loading,setLoading] = useState(false);
+    const [formData, setFormData]= useState({
+        email: '',
+        password:'',
+        confirmPassword:'',
+    })
+
+    const handleChange =((event)=>{
+        const { name, value }   = event.target;
+        setFormData ({...formData,[name]:value});
     });
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-        console.log(name, value);
-    };
-
-    const handleRegister = async () => {
-        const { email, password, confirmPassword } = formData;
+    const handleRegister = async ()=>{
+        const{ email, password, confirmPassword} = formData;
         if (!validateEmail(email)) {
-            toastIt("Ingrese un email válido", 3);
-            return;
+            toastIt('ingrese email valido.', 3);
+            return
         }
 
         if (!password || !confirmPassword) {
-            toastIt("Por favor rellenar todos los campos", 3);
+            toastIt('porfavor introduzca todos los campos', 3);
+            return
+        }
+
+        console.log('sunciono')
+        if (password !== confirmPassword) {
+            toastIt('las contraselas no coincides', 3
+            );
             return;
         }
 
-        if (password !== confirmPassword) {
-            toastIt("Las contraseñas no coinciden", 3);
-            return;
-        }
-        try {
-            setLoading(true);
-            // Esperar a que saveDocument se complete
-            await saveDocument("Users", {
-                ...formData,
-                date: moment().format(),
-            });
-        } catch (error) {
-            console.error("Error al guardar el documento:", error);
-            // Manejar el error según sea necesario
-        } finally {
-            // Independientemente de si hay un error o no, detener el loading
-            setLoading(false);
-        }
-    };
+        //instalamos bcrypt para encriptar la contraseña
+        bcrypt.hash(password,10, async(err,hash)=>{
+            if (err) {
+                console.log('ha habido un error:',err)
+            }else{
+                setLoading(true);
+                await saveDocument('Users', {email,hash,password,date: moment().format()})
+                setLoading(false);
+            }
+        })
+    }
     return (
         <Box
             sx={{
@@ -86,7 +85,7 @@ const RegisterScreen = () => {
                     name="email"
                     fullWidth
                     value={formData.email}
-                    id="outlined-basic"
+                    id="email"
                     label="Email"
                     variant="outlined"
                     onChange={handleChange}
@@ -95,7 +94,7 @@ const RegisterScreen = () => {
                     name="password"
                     fullWidth
                     value={formData.password}
-                    id="outlined-basic"
+                    id="password"
                     type="password"
                     label="Password"
                     variant="outlined"
@@ -105,7 +104,7 @@ const RegisterScreen = () => {
                     name="confirmPassword"
                     fullWidth
                     value={formData.confirmPassword}
-                    id="outlined-basic"
+                    id="oonfirmPassword"
                     type="password"
                     label="Confirm password"
                     variant="outlined"
