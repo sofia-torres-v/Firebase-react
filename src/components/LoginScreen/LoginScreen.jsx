@@ -32,20 +32,20 @@ const LoginScreen = () => {
                 </Typography>
                 <TextField
                     fullWidth
-                    id="outlined-basic"
+                    id="email"
                     label="Email"
                     variant="outlined"
                 />
                 <TextField
                     fullWidth
-                    id="outlined-basic"
+                    id="password"
                     type="password"
                     label="Password"
                     variant="outlined"
                 />
                 <TextField
                     fullWidth
-                    id="outlined-basic"
+                    id="Confirm password"
                     type="password"
                     label="Confirm password"
                     variant="outlined"
