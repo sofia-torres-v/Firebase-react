@@ -11,11 +11,13 @@ export const saveDocument = async (document, data) => {
 };
 
 export const getDocumentByProperty = async (document, property, value) => {
-    const q = query(collection(db, "document"), where(property, "==", value));
+    const documents = [];
+    const q = query(collection(db, document), where(property, "==", value));
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
+        documents.push(doc);
         console.log(doc.id, " => ", doc.data());
     });
+    return documents;
 };
