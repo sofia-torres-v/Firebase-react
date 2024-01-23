@@ -104,7 +104,7 @@ const RegisterScreen = () => {
                     name="confirmPassword"
                     fullWidth
                     value={formData.confirmPassword}
-                    id="oonfirmPassword"
+                    id="confirmPassword"
                     type="password"
                     label="Confirm password"
                     variant="outlined"
