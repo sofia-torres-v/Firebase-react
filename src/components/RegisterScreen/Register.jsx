@@ -210,7 +210,6 @@ const RegisterScreen = () => {
                 pauseOnHover
                 theme="light"
             />
-            {/* Same as */}
             <ToastContainer />
         </Box>
     );
