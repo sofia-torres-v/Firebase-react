@@ -16,7 +16,7 @@ export const getDocumentByProperty = async (document, property, value) => {
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        documents.push(doc);
+        documents.push(doc.data());
         console.log(doc.id, " => ", doc.data());
     });
     return documents;
