@@ -2,13 +2,15 @@
 import { Box, Button, Paper, TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toastIt, validateEmail } from "../../utils/utils";
 import { getDocumentByProperty } from "../../actions/actions";
 import { ToastContainer } from "react-toastify";
 import bcrypt from "bcryptjs";
 
 const LoginScreen = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -46,8 +48,7 @@ const LoginScreen = () => {
                     toastIt('Ha ocurrido un error, intentelo mas tarde', 3);
                     return;
                 }if(result){
-                    console.log(result)
-                    toastIt('Contraseña correcta, Felicidades!', 1);
+                    navigate("/home");
                     return;
                 }else{
                     toastIt('Contraseña incorecta, porfavor intente nuevamente', 3)
