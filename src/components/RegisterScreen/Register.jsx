@@ -94,7 +94,8 @@ const RegisterScreen = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "100%",
+                minHeight: "100%",
+    
             }}
         >
             <CustomLoading open={loading} />
@@ -105,8 +106,12 @@ const RegisterScreen = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: 2,
+                    gap: 1.2,
                     width: "400px",
+                    height:'100%',
+                    mt:2,
+                    mb:2
+                
                 }}
             >
                 <Typography

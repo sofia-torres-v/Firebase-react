@@ -50,7 +50,7 @@ const HomeNavBar = () => {
         py:1,
       }}
     >
-      <Typography variant="h6">Logo</Typography>
+      <Typography variant="h6">Online Store</Typography>
 
       {/* Menú hamburguesa para dispositivos móviles */}
       {isMobile && (
@@ -68,13 +68,13 @@ const HomeNavBar = () => {
             </Link>
           </ListItem>
           <ListItem>
-            <Link component={RouterLink} to="/products" color="inherit"  style={{ textDecoration: 'none' }}>
-              <Typography variant="h6">Products</Typography>
+            <Link component={RouterLink} to="/" color="inherit"  style={{ textDecoration: 'none' }}>
+              <Typography variant="h6">Productos</Typography>
             </Link>
           </ListItem>
           <ListItem>
             <Link component={RouterLink} to="/login" color="inherit"  style={{ textDecoration: 'none' }}>
-              <Typography variant="h6">Cuenta</Typography>
+              <Typography variant="h6">Registrarme</Typography>
             </Link>
           </ListItem>
         </List>
@@ -86,7 +86,7 @@ const HomeNavBar = () => {
         open={openDrawer}
         onClose={() => toggleDrawer(false)}
       >
-        <IconButton onClick={() => toggleDrawer(false)} sx={{ alignSelf: "flex-end" }}>
+        <IconButton onClick={() => toggleDrawer(false)} sx={{ alignSelf: "flex-end"}}>
           <CloseIcon />
         </IconButton>
         <List>
@@ -97,12 +97,12 @@ const HomeNavBar = () => {
           </ListItem>
           <ListItem>
             <Link component={RouterLink} to="/products" color="inherit">
-              <Typography variant="h6">Products</Typography>
+              <Typography variant="h6">Productos</Typography>
             </Link>
           </ListItem>
           <ListItem>
             <Link component={RouterLink} to="/login" color="inherit">
-              <Typography variant="h6">Iniciar Sesión</Typography>
+              <Typography variant="h6">Registrarme</Typography>
             </Link>
           </ListItem>
         </List>

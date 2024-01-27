@@ -1,6 +1,4 @@
-
 import PropTypes from "prop-types";
-// import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -16,22 +14,31 @@ import moment from "moment";
 
 
 
-const ProductCardLite = ({ title, date, image, text, quantity }) => {
+const ProductCardLite = ({ productName, date, image, category,fullName, price, quantity }) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ width: '90%' }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                         {quantity}
                     </Avatar>
                 }
-                title={title}
-                subheader={moment(date).format("LL")}
+                title={productName}
+                subheader={date ? moment(date).format("LL") : ''}
             />
-            <CardMedia component="img" height="194" image={image} alt={title} />
+            <CardMedia component="img" height="194" image={image} alt={productName} />
             <CardContent>
+                <Typography variant="body1" color="text.secondary" sx={{fontWeight: 'bold'}}>
+                   Precio Producto : {price}$
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {text}
+                   Categoría: {category}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                   Stock: {quantity} units
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                   Vendedor: {fullName} 
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -47,13 +54,16 @@ const ProductCardLite = ({ title, date, image, text, quantity }) => {
     );
 };
 
-// Agregando las PropTypes
+
 ProductCardLite.propTypes = {
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.string,
     image: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
     quantity: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
 };
 
 export default ProductCardLite;
