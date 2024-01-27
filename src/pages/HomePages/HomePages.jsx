@@ -11,6 +11,7 @@ import {
 import HomeNavBar from "../../components/HomeNavBar/HomeNavBar";
 import ProductCardLite from "../../components/ProductCardLite/ProductCardLite";
 import data from "./data";
+import Footer from "../../components/Footer/Footer";
 
 const HomePages = () => {
     return (
@@ -53,7 +54,7 @@ const HomePages = () => {
                 <Grid
                     container
                     spacing={1}
-                    sx={{ py: 5 }}
+                    sx={{ py: 8 }}
                 >
                     {data.map((item, index) => {
                         return (
@@ -75,6 +76,7 @@ const HomePages = () => {
                     })}
                 </Grid>
             </Container>
+            <Footer/>
         </Box>
     );
 };
