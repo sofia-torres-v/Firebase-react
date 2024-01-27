@@ -12,9 +12,9 @@ function App() {
         <Box sx={{ height: "100vh" }}>
             <Routes>
                 <Route path="/" element={<HomePages />} />
+                <Route path="/home" element={<HomePages />} />
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />               
-                {/* <Route path="/Home" element={<HomePages />} />                */}
             </Routes>
         </Box>
     );

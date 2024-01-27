@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import HomeNavBar from "../../components/HomeNavBar/HomeNavBar";
 import ProductCardLite from "../../components/ProductCardLite/ProductCardLite";
-import data from "./data"; 
+import data from "./data";
 
 const HomePages = () => {
     return (
@@ -25,8 +25,7 @@ const HomePages = () => {
                         mt: 5,
                     }}
                 >
-                    <FormControl sx={{ width: "50%" }}>
-                        
+                    <FormControl sx={{ width: "100%" }}>
                         <InputLabel id="demo-simple-select-label">
                             Categoria
                         </InputLabel>
@@ -34,39 +33,46 @@ const HomePages = () => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             label="Categoria"
-                            value={''} 
+                            value={""}
                         >
-                            <MenuItem value={10}>Ropa</MenuItem>
-                            <MenuItem value={20}>Artefactos</MenuItem>
-                            <MenuItem value={30}>Muebles</MenuItem>
+                            <MenuItem value={10}>Comida y Bebidas</MenuItem>
+                            <MenuItem value={20}>Tecnología</MenuItem>
+                            <MenuItem value={30}>Muebles y Hogar</MenuItem>
+                            <MenuItem value={30}>Piezas de Autos</MenuItem>
+                            <MenuItem value={30}>Electrodomésticos</MenuItem>
                         </Select>
                     </FormControl>
 
                     <TextField
-                        sx={{ width: "50%" }}
+                        sx={{ width: "100%" }}
                         name="productName"
                         label="Nombre del productos"
                         variant="outlined"
                     />
                 </Box>
-                <Grid container spacing={1} sx={{py:5}}>
-                        {data.map((item,index)=>{
-                            return( 
-                            <Grid key={index} item xs={4}>
-                                <ProductCardLite
-                                    title={item.title}
-                                    date={item.date}
-                                    image={item.image}
-                                    text={item.text}
-                                    quantity={item.quantity.toString()}
-                                />
+                <Grid
+                    container
+                    spacing={1}
+                    sx={{ py: 5 }}
+                >
+                    {data.map((item, index) => {
+                        return (
+                            <Grid key={index} item xs={12} sm={6} md={4}>
+                                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                                    <ProductCardLite
+                                        productName={item.productName}
+                                        date={item.date}
+                                        image={item.image}
+                                        text={item.text}
+                                        price={item.price}
+                                        category={item.category}
+                                        quantity={item.quantity.toString()}
+                                        fullName={item.fullName}
+                                    />
+                                </Box>
                             </Grid>
-                            );
-                    
-                        })}
-
-
-
+                        );
+                    })}
                 </Grid>
             </Container>
         </Box>
