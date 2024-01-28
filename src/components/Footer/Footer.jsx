@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
-import { MAIN_COLORS } from "../../utils/constans";
+// import { MAIN_COLORS } from "../../utils/constans";
 
 const Footer = () => {
     return (
     
             <Box
                 sx={{
-                    backgroundColor:MAIN_COLORS.home_BG,
+                    backgroundColor:'rgba(141, 153, 157, 0.318)',
                     display: "flex",
                     flexDirection:'column',
                     justifyContent: "space-between",
@@ -16,7 +16,7 @@ const Footer = () => {
                     '@media (min-width: 600px)': {
                         flexDirection: 'row',
                     },
-                }}
+                }} 
             >
                 <Typography variant="body1"  color="#000" sx={{}}>
                     Online Store 

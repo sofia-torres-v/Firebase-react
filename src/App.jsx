@@ -1,6 +1,4 @@
 import { Box } from "@mui/material";
-import "./App.css";
-
 import { Route, Routes } from "react-router-dom";
 import LoginScreen from "./components/LoginScreen/LoginScreen";
 import RegisterScreen from "./components/RegisterScreen/Register";

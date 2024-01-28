@@ -35,7 +35,7 @@ const ProductCardLite = ({ productName, date, image, category,fullName, price, q
                    Categoría: {category}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                   Stock: {quantity} units
+                   Stock: {quantity} unidades
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                    Vendedor: {fullName} 

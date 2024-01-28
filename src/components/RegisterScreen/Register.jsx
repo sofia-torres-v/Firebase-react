@@ -22,11 +22,11 @@ import CustomLoading from "../common/CustomLoading";
 const RegisterScreen = () => {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        fullName:'',
+        fullName: "",
         email: "",
         password: "",
         confirmPassword: "",
-        userRole:'buyer'
+        userRole: "buyer",
     });
 
     const navigate = useNavigate();
@@ -36,14 +36,15 @@ const RegisterScreen = () => {
     };
 
     const handleRegister = async () => {
-        const { fullName, email, password, userRole, confirmPassword } = formData;
+        const { fullName, email, password, userRole, confirmPassword } =
+            formData;
         if (!validateEmail(email)) {
-            toastIt("Ingrese email válido por favor.", 3);
+            toastIt("Ingrése un email válido por favor.", 3);
             return;
         }
 
         if (!password || !confirmPassword || !fullName) {
-            toastIt("Porfavor introduzca todos los campos", 3);
+            toastIt("Porfavor compléte todos los campos", 3);
             return;
         }
 
@@ -53,7 +54,7 @@ const RegisterScreen = () => {
             return;
         }
 
-        //instalamos bcrypt para encriptar la contraseña
+        //Instalamos bcrypt para encriptar la contraseña
         bcrypt.hash(password, 10, async (err, hash) => {
             if (err) {
                 console.log("Ocurrió un error:", err);
@@ -65,7 +66,7 @@ const RegisterScreen = () => {
                     email
                 );
                 if (docs.length > 0) {
-                    toastIt("Este usuario ya existe", 2);
+                    toastIt("Este Usuario ya existe", 2);
                     return;
                 }
 
@@ -77,11 +78,13 @@ const RegisterScreen = () => {
                     date: moment().format(),
                 });
                 setLoading(false);
-                toastIt("Registro exitoso. Redirigiendo a Login.", 1);
+                toastIt(
+                    "Regístro exitoso. Redirigiendo a Inicio de Sesión.",
+                    1
+                );
 
                 //Para que demore el redirigir y poder ver el mensaje
                 setTimeout(() => {
-                    //Redirigiendo al usuarios registrado a Login
                     navigate("/Login");
                 }, 3000);
             }
@@ -95,12 +98,11 @@ const RegisterScreen = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 minHeight: "100%",
-    
             }}
         >
             <CustomLoading open={loading} />
             <Paper
-                elevation={2}
+                elevation={3}
                 sx={{
                     p: 5,
                     display: "flex",
@@ -108,18 +110,18 @@ const RegisterScreen = () => {
                     alignItems: "center",
                     gap: 1.2,
                     width: "400px",
-                    height:'100%',
-                    mt:2,
-                    mb:2
-                
+                    height: "100%",
+                    mt: 2,
+                    mb: 2,
+                    
                 }}
             >
                 <Typography
                     variant="h4"
-                    color="primary"
-                    sx={{ textTransform: "uppercase", fontWeight: "bold" }}
+                    color="#3f3b3b"
+                    sx={{ fontWeight: "bold" }}
                 >
-                    Register
+                    Regístrate
                 </Typography>
 
                 <TextField
@@ -127,18 +129,20 @@ const RegisterScreen = () => {
                     fullWidth
                     value={formData.fullName}
                     id="email"
-                    label="Full Name"
+                    label="Nombre Completo"
                     variant="outlined"
                     onChange={handleChange}
+                    sx={{background:' rgb(246, 248, 249)'}}
                 />
                 <TextField
                     name="email"
                     fullWidth
                     value={formData.email}
                     id="email"
-                    label="Email"
+                    label="Correo Electrónico"
                     variant="outlined"
                     onChange={handleChange}
+                    sx={{background:' rgb(246, 248, 249)'}}
                 />
                 <TextField
                     name="password"
@@ -146,9 +150,10 @@ const RegisterScreen = () => {
                     value={formData.password}
                     id="password"
                     type="password"
-                    label="Password"
+                    label="Contraseña"
                     variant="outlined"
                     onChange={handleChange}
+                    sx={{background:' rgb(246, 248, 249)'}}
                 />
                 <TextField
                     name="confirmPassword"
@@ -156,38 +161,50 @@ const RegisterScreen = () => {
                     value={formData.confirmPassword}
                     id="confirmPassword"
                     type="password"
-                    label="Confirm password"
+                    label="Confirmar Contraseña"
                     variant="outlined"
                     onChange={handleChange}
+                    sx={{background:' rgb(246, 248, 249)'}}
                 />
 
-                <FormControl sx={{alignSelf: 'start'}}>
-                    <FormLabel id="demo-radio-buttons-group-label">
-                        Gender
+                <FormControl sx={{ alignSelf: "start"}}>
+                    <FormLabel  id="demo-radio-buttons-group-label">
+                        Rol
                     </FormLabel>
-                    <RadioGroup
+                    <RadioGroup 
                         name="userRole"
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="buyer"
                         value={formData.userRole}
                         onChange={handleChange}
-                    >
-                        <FormControlLabel
-                            value="buyer"
-                            control={<Radio />}
-                            label="Buyer"
-                        />
                        
+                    >
+                        <FormControlLabel 
+                            value="buyer"
+                            control={<Radio  sx={{ color: 'turquoise !important' }}/>}
+                            label="Comprador(a)"
+                        />
+
                         <FormControlLabel
                             value="seller"
-                            control={<Radio />}
-                            label="Seller"
+                            control={<Radio  sx={{ color: 'rgb(43, 196, 181) !important' }} />}
+                            label="Vendedor(a)"
                         />
                     </RadioGroup>
                 </FormControl>
 
-                <Button fullWidth variant="contained" onClick={handleRegister}>
-                    Register
+                <Button fullWidth variant="contained" onClick={handleRegister}  
+                  sx={{
+                        backgroundColor: "rgb(43, 196, 181)",
+                        border: "1px solid turquoise",
+                        color: "#000",
+                      
+                        boxShadow: "none",
+                        "&:hover": {
+                            backgroundColor: "rgb(43, 196, 181)",
+                        },
+                    }}>
+                    Registrar
                 </Button>
                 <Box
                     sx={{
@@ -197,10 +214,26 @@ const RegisterScreen = () => {
                         gap: 2,
                     }}
                 >
-                    <Typography variant="body1" color="initial">
-                        Ya tienes Cuenta
+                    <Typography
+                        style={{ paddingTop: 2 }}
+                        variant="body1"
+                        color="initial"
+                    >
+                        ¿ Ya tienes Cuenta ?
                     </Typography>
-                    <Link to="/login">Login </Link>
+                    <Link
+                        style={{
+                            textDecoration: "none",
+                            fontSize: "18px",
+                            paddingTop: 2,
+                            color: "#3f3b3b",
+                            fontWeight: "bold",
+                        }}
+                        to="/login"
+                    >
+                        {" "}
+                        Inicia Sesión{" "}
+                    </Link>
                 </Box>
             </Paper>
             <ToastContainer
