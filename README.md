@@ -38,6 +38,5 @@
 
 ![Interfaz de Productos](./src//assets/interfaz-Ui.jpg)
 
-**¡Gracias por visitar la Tienda Online! 🛍️**
 
-[Visita nuestra tienda](https://github.com/tu-usuario/tu-repositorio/issues)
+[Enlace a la Interfaz de Usuario 🛍️](https://github.com/tu-usuario/tu-repositorio/issues)
