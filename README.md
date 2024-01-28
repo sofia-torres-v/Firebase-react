@@ -1,6 +1,6 @@
 # Tienda Online con Material-UI
 
-¡Bienvenidoos! Este un proyecto que ofrece una plataforma para la compra y venta de una amplia variedad de artículos. Este proyecto está desarrollado con React y utiliza Material-UI para construir una interfaz de usuario moderna y atractiva.
+¡Bienvenidos! Este un proyecto que ofrece una plataforma para la compra y venta de una amplia variedad de artículos. Este proyecto está desarrollado con React y utiliza Material-UI para construir una interfaz de usuario moderna y atractiva.
 
 ## Funcionalidades Clave
 
