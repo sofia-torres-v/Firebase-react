@@ -28,15 +28,15 @@ Bienvenido a la Tienda Online, un proyecto que ofrece una plataforma para la com
 
 ### Pantalla de Inicio de Sesión
 
-![Pantalla de Inicio de Sesión](/ruta/a/la/imagen-login.png)
+![Pantalla de Inicio de Sesión](./src//assets/login-Ui.jpg)
 
 ### Pantalla de Registro
 
-![Pantalla de Registro](/ruta/a/la/imagen-registro.png)
+![Pantalla de Registro](./src//assets/register-Ui.jpg)
 
 ### Interfaz de Productos
 
-![Interfaz de Productos](/ruta/a/la/imagen-productos.png)
+![Interfaz de Productos](./src//assets/interfaz-Ui.jpg)
 
 **¡Gracias por visitar la Tienda Online! 🛍️**
 
