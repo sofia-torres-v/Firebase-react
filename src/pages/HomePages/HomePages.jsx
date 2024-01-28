@@ -8,7 +8,7 @@ import {
     Container,
     Grid,
 } from "@mui/material";
-import HomeNavBar from "../../components/HomeNavBar/HomeNavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import ProductCardLite from "../../components/ProductCardLite/ProductCardLite";
 import data from "./data";
 import Footer from "../../components/Footer/Footer";
@@ -16,7 +16,7 @@ import Footer from "../../components/Footer/Footer";
 const HomePages = () => {
     return (
         <Box>
-            <HomeNavBar />
+            <NavBar />
             <Container>
                 <Box
                     sx={{

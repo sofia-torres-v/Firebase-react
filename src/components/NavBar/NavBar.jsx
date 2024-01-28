@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { MAIN_COLORS } from "../../utils/constans";
 import { Link as RouterLink } from "react-router-dom";
 
-const HomeNavBar = () => {
+const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 960);
 
@@ -61,7 +61,7 @@ const HomeNavBar = () => {
 
       {/* Lista de enlaces para dispositivos de escritorio */}
       {!isMobile && (
-        <List sx={{ display: { xs: "none", md: "flex" }, gap: 2,  }}>
+        <List sx={{ display: { xs: "none", md: "flex" }, gap: 2, }}>
           <ListItem>
             <Link component={RouterLink} to="/" color="inherit"  style={{ textDecoration: 'none' }}>
               <Typography variant="h6">Inicio</Typography>
@@ -81,27 +81,37 @@ const HomeNavBar = () => {
       )}
 
       {/* Drawer (menú lateral) para dispositivos móviles */}
-      <Drawer
+      <Drawer 
         anchor="right"
         open={openDrawer}
         onClose={() => toggleDrawer(false)}
+        
+        sx={{
+          width: '40vw', // Ancho del Drawer en dispositivos móviles
+          '& .MuiDrawer-paper': {
+            width: '40vw', 
+            alignItems: 'center',
+           
+          },
+        }}
+        
       >
         <IconButton onClick={() => toggleDrawer(false)} sx={{ alignSelf: "flex-end"}}>
           <CloseIcon />
         </IconButton>
         <List>
           <ListItem>
-            <Link component={RouterLink} to="/" color="inherit" >
+            <Link component={RouterLink} to="/" color="inherit" style={{ textDecoration: 'none' }} >
               <Typography variant="h6">Inicio</Typography>
             </Link>
           </ListItem>
           <ListItem>
-            <Link component={RouterLink} to="/products" color="inherit">
+            <Link component={RouterLink} to="/products" color="inherit" style={{ textDecoration: 'none' }}>
               <Typography variant="h6">Productos</Typography>
             </Link>
           </ListItem>
           <ListItem>
-            <Link component={RouterLink} to="/login" color="inherit">
+            <Link component={RouterLink} to="/login" color="inherit" style={{ textDecoration: 'none' }}>
               <Typography variant="h6">Registrarme</Typography>
             </Link>
           </ListItem>
@@ -111,4 +121,4 @@ const HomeNavBar = () => {
   );
 };
 
-export default HomeNavBar;
+export default NavBar;

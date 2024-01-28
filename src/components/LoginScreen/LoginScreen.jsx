@@ -1,4 +1,3 @@
-
 import { Box, Button, Paper, TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 import { useState } from "react";
@@ -23,40 +22,46 @@ const LoginScreen = () => {
 
     const handleLogin = async () => {
         const { email, password } = formData;
-        
-        console.log(email, password)
+
+        console.log(email, password);
         if (!validateEmail(email)) {
-            toastIt("Ingrese email válido por favor.", 3);
+            toastIt("Ingrese un correo válido por favor.", 3);
             return;
         }
 
-        if (!email || !password ) {
-            toastIt("Porfavor introduzca todos los campos", 3);
+        if (!email || !password) {
+            toastIt("Porfavor compléte todos los campos", 3);
             return;
         }
 
         try {
-            const docs = await getDocumentByProperty('Users', 'email', email);
+            const docs = await getDocumentByProperty("Users", "email", email);
 
             if (docs.length < 1) {
-                toastIt('No existe ningun usuario registrado con ese correo', 3);
+                toastIt(
+                    "No existe ningun Usuario registrado con ese correo",
+                    3
+                );
                 return;
             }
-            
-            bcrypt.compare(password,docs[0].hash,(err,result)=>{
+
+            bcrypt.compare(password, docs[0].hash, (err, result) => {
                 if (err) {
-                    toastIt('Ha ocurrido un error, intentelo mas tarde', 3);
+                    toastIt("Ha ocurrido un error, inténtelo mas tarde", 3);
                     return;
-                }if(result){
+                }
+                if (result) {
                     navigate("/home");
                     return;
-                }else{
-                    toastIt('Contraseña incorecta, porfavor intente nuevamente', 3)
+                } else {
+                    toastIt(
+                        "Contraseña incorecta, porfavor intente nuevamente",
+                        3
+                    );
                 }
-            })
-
+            });
         } catch (error) {
-            toastIt('Ha ocurrido un error vuelva a intentarlo mas tarde.', 3);
+            toastIt("Ha ocurrido un error vuelva a intentarlo mas tarde.", 3);
             console.log(error);
         }
     };
@@ -70,7 +75,7 @@ const LoginScreen = () => {
             }}
         >
             <Paper
-                elevation={2}
+                elevation={3}
                 sx={{
                     p: 5,
                     display: "flex",
@@ -82,31 +87,48 @@ const LoginScreen = () => {
             >
                 <Typography
                     variant="h4"
-                    color="primary"
-                    sx={{ textTransform: "uppercase", fontWeight: "bold" }}
+                    color="#3f3b3b"
+                    sx={{ fontWeight: "bold" }}
                 >
-                    Login
+                    Iniciar sesión
                 </Typography>
                 <TextField
                     fullWidth
                     name="email"
                     id="email"
-                    label="Email"
+                    label="Correo Electrónico"
                     variant="outlined"
                     onChange={handleChange}
+                    sx={{background:' rgb(246, 248, 249)'}}
+
+            
                 />
                 <TextField
                     fullWidth
                     name="password"
                     id="password"
                     type="password"
-                    label="Password"
+                    label="Contraseña"
                     variant="outlined"
                     onChange={handleChange}
-                />
+                    sx={{background:' rgb(246, 248, 249)'}}
              
-                <Button fullWidth variant="contained" onClick={handleLogin}>
-                    Click me
+                />
+
+                <Button
+                    fullWidth
+                    variant="contained"
+                    onClick={handleLogin}
+                    sx={{
+                        backgroundColor: "turquoise",         
+                        color: "#000",
+                        boxShadow: "none",
+                        "&:hover": {
+                            backgroundColor: "rgb(43, 196, 181)",
+                        },
+                    }}
+                >
+                    Iniciar
                 </Button>
                 <Box
                     sx={{
@@ -117,9 +139,19 @@ const LoginScreen = () => {
                     }}
                 >
                     <Typography variant="body1" color="initial">
-                        No tienes Cuenta
+                        ¿ No tienes Cuenta ?
                     </Typography>
-                    <Link to="/register">Sign Up </Link>
+                    <Link
+                        style={{
+                            textDecoration: "none",
+                            fontSize: "18px",
+                            color: "#3f3b3b",
+                            fontWeight: "bold",
+                        }}
+                        to="/register"
+                    >
+                        Regístrate{" "}
+                    </Link>
                 </Box>
             </Paper>
 
