@@ -26,17 +26,12 @@
 
 ## Capturas de Pantalla
 
-### Pantalla de Inicio de Sesión
+### Pantalla de Inicio de Sesión y Registro de Usuario
 
-![Pantalla de Inicio de Sesión](./src//assets/login-Ui.jpg)
-
-### Pantalla de Registro
-
-![Pantalla de Registro](./src//assets/register-Ui.jpg)
+![Pantalla de Inicio de Sesión](./src//assets/form-home.png)
 
 ### Interfaz de Productos
 
 ![Interfaz de Productos](./src//assets/interfaz-Ui.jpg)
-
 
 [Enlace a la Interfaz de Usuario 🛍️](https://github.com/tu-usuario/tu-repositorio/issues)
