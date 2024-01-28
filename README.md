@@ -34,4 +34,4 @@
 
 ![Interfaz de Productos](./src//assets/interfaz-Ui.jpg)
 
-[Enlace a la Interfaz de Usuario 🛍️](https://store-with-material-ui.vercel.app/)
+[Enlace a la Interfaz de Usuario 🛍️](https://store-with-material-ui.vercel.app/){:target="_blank"}
