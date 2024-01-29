@@ -109,7 +109,8 @@ const RegisterScreen = () => {
                     flexDirection: "column",
                     alignItems: "center",
                     gap: 1.2,
-                    width: "400px",
+                    width: "92%",
+                    maxWidth:'400px',
                     height: "100%",
                     mt: 2,
                     mb: 2,
@@ -128,7 +129,7 @@ const RegisterScreen = () => {
                     name="fullName"
                     fullWidth
                     value={formData.fullName}
-                    id="email"
+                    id="fullName"
                     label="Nombre Completo"
                     variant="outlined"
                     onChange={handleChange}

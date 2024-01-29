@@ -106,7 +106,7 @@ const NavBar = () => {
             </Link>
           </ListItem>
           <ListItem>
-            <Link component={RouterLink} to="/products" color="inherit" style={{ textDecoration: 'none' }}>
+            <Link component={RouterLink} to="/" color="inherit" style={{ textDecoration: 'none' }}>
               <Typography variant="h6">Productos</Typography>
             </Link>
           </ListItem>

@@ -82,7 +82,9 @@ const LoginScreen = () => {
                     flexDirection: "column",
                     alignItems: "center",
                     gap: 2,
-                    width: "400px",
+                    width: "92%",
+                    maxWidth:'400px'
+                    
                 }}
             >
                 <Typography
